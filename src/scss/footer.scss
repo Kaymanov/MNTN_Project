@@ -1,0 +1,123 @@
+//====================================================================================================
+.footer {
+    
+    // .footer__container
+
+    &__container {
+        color: #fff;
+        display: flex;
+        gap: rem(20);
+        min-height: rem(400);
+        @media (max-width:480px){
+            flex-wrap: wrap;
+            text-align: center;
+            justify-content: center;
+            align-items: center;
+            
+        }
+    }
+
+    
+
+	// .footer__copy
+	&__copy {
+        display: flex;
+        justify-content: center;
+        text-align: center;
+        color: #fff;
+        opacity: 0.5;
+        padding-top: rem(20);
+        @media (max-width:$mobile){
+             font-size: rem(14); 
+        }
+	}
+
+
+
+    // .footer__block-left
+
+    &__block-left {
+        flex: 1 1 auto;
+        @media (max-width: 480px){
+            flex: 0 0 0;
+        }
+    }
+
+    // .footer__block-center
+
+    &__block-center {
+    }
+
+    // .footer__block-right
+
+    &__block-right {
+    }
+}
+.left-block {
+    display: flex;
+    flex-direction: column;
+    // .left-block__logo
+
+    &__logo {
+        font-family: Chronicle Display;
+        font-size: rem(32);
+        @media (max-width:610px){
+             display: none; 
+        }
+    }
+
+    // .left-block__text
+
+    &__text {
+        flex: 1 1 auto;
+        width: rem(303);
+        height: auto;
+        line-height: math.div(32, 18);
+        font-weight: 700;
+        padding-top: rem(24);
+        @media (max-width:$tablet){
+            display: none;
+        }
+    }
+
+    
+	// .left-block__copy
+	&__copy {
+        opacity: 0.5;
+        padding-bottom: rem(120);
+	}
+
+}
+.center-block {
+
+    // .center-block__title
+
+    &__title {
+        color: $mainYellow;
+        font-weight: 700;
+        font-size: rem(24);
+        line-height: math.div(32, 18);
+    }
+
+    // .center-block__list
+
+    &__list {
+        display: flex;
+        flex-direction: column;
+        gap: rem(27);
+    }
+
+    // .center-block__link
+
+    &__link {
+        &:first-child{
+            padding-top: rem(16);
+        } 
+        
+    }
+}
+.right-block {
+    @include adaptiveValue("padding-left", 212, 0, 1200, 320, 1);
+}
+
+//====================================================================================================

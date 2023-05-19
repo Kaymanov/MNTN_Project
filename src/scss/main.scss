@@ -1,0 +1,190 @@
+.content {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    @include adaptiveValue("gap", 200, 80, 998, 320, 1);
+    // .content__container
+    &__container {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        color: #fff;
+        @include adaptiveValue("gap", 114, 30, 1487, 1330, 1);
+        @media (max-width:$tablet){
+            flex-wrap: wrap;  
+        }
+    }
+
+    // .content__container-1
+    &__container-1 {
+        display: flex;
+        flex-direction: row-reverse;
+        justify-content: center;
+        align-items: center;
+        color: #fff;
+        @include adaptiveValue("gap", 114, 30, 1487, 1330, 1);
+        @media (max-width:$tablet){
+            flex-wrap: wrap;  
+        }
+    }
+
+    // .content__container-2
+    &__container-2 {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        color: #fff;
+        @include adaptiveValue("gap", 114, 30, 1487, 1330, 1);
+        @media (max-width:$tablet){
+            flex-wrap: wrap;  
+        }
+    }
+
+    // .content__text
+    &__text {
+    }
+
+    // .content__photo
+    &__photo {
+    }
+    
+}
+.text-content {
+    // .text-content_link
+    @include adaptiveValue("padding-left", 160, 30, 1280, 970, 1);
+    &_link a {
+        display: flex;
+        flex-direction: row-reverse;
+        align-items: center;
+        justify-content: flex-end;
+        line-height: rem(22);
+        color: $mainYellow;
+        padding-top: rem(27);
+        
+        &::before{
+            padding-left: rem(16);
+        }
+    }
+
+    // .text-content__sub-title
+    &__sub-title {
+        @include adaptiveValue("font-size", 18, 12, 992, 320, 1);
+		font-size: rem(18);
+		font-weight: 800;
+		line-height: math.div(22, 18);
+		letter-spacing: 6px;
+		text-transform: uppercase;
+		color: $mainYellow;
+		display: flex;
+		&::before {
+			content:'';
+			display: block;
+			@include adaptiveValue("width", 72, 36, 992, 320, 1);
+			height: 2px;
+			background-color: $mainYellow;
+			justify-content: center;
+			@include adaptiveValue("margin-top", 10, 6, 992, 320, 1);
+			margin: rem(10) rem(32) rem(10) 0px;
+        }
+        
+    }
+
+
+	// .text-content__number
+	&__number {
+        position: relative;
+        &::before{
+            content:'01';
+            font-family: Gilroy;
+            font-weight: 700;
+            opacity: 0.3;
+            top: -104px;
+            left: -150px;
+            position: absolute;
+            font-size: rem(240);
+            width: rem(240);
+            height: rem(240);
+            
+        }
+        @media (max-width:$tablet){
+            display: none;
+        }
+	}
+
+    // .text-content__number2
+	&__number2 {
+        position: relative;
+        &::before{
+            content:'02';
+            font-family: Gilroy;
+            font-weight: 700;
+            opacity: 0.3;
+            top: -104px;
+            left: -150px;
+            position: absolute;
+            font-size: rem(240);
+            width: rem(240);
+            height: rem(240);
+            
+        }
+        @media (max-width:$tablet){
+            display: none;
+        }
+	}
+
+    // .text-content__number3
+	&__number3 {
+        position: relative;
+        &::before{
+            content:'03';
+            font-family: Gilroy;
+            font-weight: 700;
+            opacity: 0.3;
+            top: -104px;
+            left: -150px;
+            position: absolute;
+            font-size: rem(240);
+            width: rem(240);
+            height: rem(240);
+            
+        }
+        @media (max-width:$tablet){
+            display: none;
+        }
+	}
+
+    @media (max-width:$tablet){
+        padding-left: 0;
+    }
+
+
+    // .text-content__title
+    &__title {
+        font-family: 'Chronicle Display';
+        font-weight: 600;
+        @include adaptiveValue("font-size", 64, 34, 992, 320, 1);
+        @include adaptiveValue("line-height", 77, 44, 1200, 320, 1);
+        position: relative;
+        padding-top: rem(27);
+        margin-left: 0;
+    }
+
+    // .text-content__text
+    &__text {
+        @include adaptiveValue("font-size", 18, 14, 1200, 320, 1);
+        font-weight: 700;
+        line-height: math.div(32, 18);
+        
+        
+    }
+}
+.photo-content {
+    @include adaptiveValue("min-width", 566, 66, 1200, 320, 1);
+    @include adaptiveValue("min-height", 720, 120, 1200, 320, 1);
+   
+    img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+    }
+}

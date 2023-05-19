@@ -1,0 +1,235 @@
+//====================================================================================================
+// Ограничивающий контейнер 1760px
+.header {
+	color: #fff;
+	min-height: 100vh;
+	display: flex;
+	
+	// .header__container
+	&__container {
+		flex: 1 1 auto;
+		max-width: rem(1760);
+		margin: 0px auto;
+		display: flex;
+		flex-direction: column;
+		
+	}
+
+	// .header__menu
+	&__menu {
+		padding-top: rem(60);
+		@include adaptiveValue("padding-top", 60, 0, 992, 320, 1);
+	}
+
+	// .header__banner
+	&__banner {
+		display: flex;
+		align-self: stretch;
+		min-height: 100%;
+		max-width: rem(950);
+		flex-direction: column;
+		justify-content: start;
+		margin: 0 auto;
+		@include adaptiveValue("padding-top", 193, 53, 992, 320, 1);
+	}
+
+}
+.menu-header {
+	display: flex;
+	justify-content: space-between;
+	align-items: center;
+	gap: rem(20);
+
+	// .menu-header__logo
+	&__logo {
+		font-family: Chronicle Display;
+		font-size: rem(32);
+		line-height: math.div(38, 18);
+		font-weight: 800;
+	}
+
+	// .menu-header__navigation
+	&__navigation {
+	}
+
+	// .menu-header__login
+	&__login {
+		display: flex;
+		align-items: center;
+		justify-content: center;
+		
+	}
+
+	// .menu-header__login-link
+	&__login-link {
+		display: flex;
+		align-items: baseline;
+		justify-content: center;
+		font-size: rem(18);
+		line-height: math.div(21, 18);
+		font-weight: 700;
+		gap: rem(8);
+		@media (max-width:$mobile){
+			&::before{
+				content:'';
+				display: none;
+			} 
+		}
+		@media (any-hover: hover){
+			&:hover{
+				color: $mainYellow;
+			}
+		}
+		@media (max-width:$mobile){
+			font-size: rem(25);
+			justify-content: flex-start;
+		}
+	}	
+}
+.navigation-bar {
+	@media (max-width:$mobile){
+		 position: fixed;
+		 top: 0;
+		 left: -100%;
+		 width: 100%;
+		 height: 100%;
+		 background-color: $mainColor;
+		 color: #fff;
+		 transition: left 0.3s ease 0s;
+		 overflow: auto;
+		 &::before{
+			content:'';
+			position: fixed;
+			width: 100%;
+			top: 0;
+			left: -100%;
+			height: rem(70);
+			background-color: $mainColor;
+		 }
+		 .menu-open & {
+			left: 0;
+			&::before{
+				left: 0;
+				transition: left 0.3s ease 0s;
+			}
+		 }
+		 
+	}
+
+	
+	// .navigation-bar__list
+	&__list {
+		display: flex;
+		font-weight: 700;
+		line-height: math.div(22, 18);
+		gap: rem(40);
+		@media (max-width:$mobile){
+			 flex-direction: column;
+			 font-size: rem(25);
+			 padding: rem(65) rem(15) rem(50) rem(15);
+		}
+	}
+
+	// .navigation-bar__item
+	&__item {
+		@media (max-width:$mobile){
+			 
+		}
+	}
+
+	// .navigation-bar__link
+	&__link {
+		@media (any-hover: hover){
+			&:hover{
+				color: $mainYellow;
+			}
+		}
+	}
+}
+.banner-header {
+
+	// .banner-header__title
+	&__title {
+		@include adaptiveValue("font-size", 18, 12, 992, 320, 1);
+		font-size: rem(18);
+		font-weight: 800;
+		line-height: math.div(22, 18);
+		letter-spacing: 6px;
+		text-transform: uppercase;
+		color: $mainYellow;
+		display: flex;
+		&::before {
+			content:'';
+			display: block;
+			@include adaptiveValue("width", 72, 36, 992, 320, 1);
+			height: 2px;
+			background-color: $mainYellow;
+			justify-content: center;
+			@include adaptiveValue("margin-top", 10, 6, 992, 320, 1);
+			margin: rem(10) rem(32) rem(10) 0px;
+			
+				
+		}
+	}
+
+	// .banner-header__text
+	&__text {
+		padding-top: rem(36);
+		font-family: Chronicle Display Semibold;
+		@include adaptiveValue("font-size", 88, 44, 992, 320, 1);
+		text-transform: capitalize;
+		font-weight: 600;
+		
+	}
+}
+
+
+//====================================================================================================
+
+//Burger
+
+.icon-menu {
+	display: none;
+	@media (max-width: $mobile) {
+		display: block;
+		position: relative;
+		width: 30px;
+		height: 18px;
+		cursor: pointer;
+		z-index: 5;
+		span,
+		&::before,
+		&::after {
+			content: "";
+			transition: all 0.3s ease 0s;
+			left: 0px;
+			position: absolute;
+			width: 100%;
+			height: 2px;
+			background-color: #fff;
+		}
+		&::before {
+			top: 0px;
+		}
+		&::after {
+			bottom: 0px;
+		}
+		span {
+			top: calc(50% - 1px);
+		}
+		.menu-open & {
+			span {
+				transform: scale(0);
+			}
+			&::before {
+				transform: rotate(-45deg);
+				top: calc(50% - 1px);
+			}
+			&::after {
+				transform: rotate(45deg);
+				bottom: calc(50% - 1px);
+			}
+		}
+	}
+}
+
